@@ -1,0 +1,23 @@
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+/* Selects even rows of data */
+tr.mat-mdc-row:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+/* Change color on hover */
+tr.mat-mdc-row:hover {
+  background-color: #e3f2fd;
+}

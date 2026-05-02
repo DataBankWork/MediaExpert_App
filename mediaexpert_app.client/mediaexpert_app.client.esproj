@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.128-alpha">
+  <PropertyGroup>
+    <StartupCommand>npm start</StartupCommand>
+    <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Folder where production build objects will be placed -->
+    <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist\mediaexpert_app.client\</PublishAssetsDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\enums\" />
+    <Folder Include="src\app\services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove="src\app\components\product-list\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\components\product-list\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\components\product-list\product-list.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\components\product-list\product-list.component.spec.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\components\product-list\product-list.component.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\components\product-list\product-list.component.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\components\product-list\add-edit-product-dialog\add-edit-product-dialog\add-edit-product-dialog.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\components\product-list\add-edit-product-dialog\add-edit-product-dialog\add-edit-product-dialog.component.spec.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\components\product-list\add-edit-product-dialog\add-edit-product-dialog\add-edit-product-dialog.component.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\components\product-list\add-edit-product-dialog\add-edit-product-dialog\add-edit-product-dialog.component.css" />
+  </ItemGroup>
+</Project>

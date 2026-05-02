@@ -1,0 +1,18 @@
+.spacer {
+  flex: 1 1 auto; /* Zajmuje całe wolne miejsce w środku */
+}
+
+/*------------*/
+/* 1. Pozwól linii wyświetlać przyciski (wyłącz ucinanie) */
+[matListItemLine] {
+  overflow: visible !important;
+  display: flex !important; /* Ustawia tekst i przyciski w rzędzie */
+  align-items: center; /* Środkuje pionowo */
+  height: auto !important; /* Pozwala na większą wysokość niż standardowe 20px */
+}
+
+.price-tag {
+  color: black !important; /* Wymusza czarny kolor */
+  font-size: 15px !important; /* Zwiększa rozmiar (standard to ok. 12-14px) */
+  opacity: 1 !important; /* Niektóre motywy nakładają opacity na meta */
+}

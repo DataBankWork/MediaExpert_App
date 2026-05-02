@@ -1,0 +1,61 @@
+<mat-selection-list [multiple]="false">
+  <!--<div mat-subheader>-->
+  <mat-toolbar color="basic">
+    <div><mat-icon>format_list_bulleted</mat-icon> Products list:</div>
+
+    <!-- Spacer wypełnia całą dostępną przestrzeń -->
+    <span class="spacer"></span>
+    <button mat-flat-button color="primary" (click) ="openDialog()">
+      <mat-icon>add</mat-icon>
+      <span>Add product</span>
+    </button>
+  </mat-toolbar>
+
+
+  <!--</div>-->
+  @for (product of products; track product.id) {
+  <mat-list-item disableRipple>
+    <!-- Ikona po lewej stronie -->
+    <img matListItemAvatar src="assets/product1.png" alt="Avatar">
+    <!--<mat-icon matListItemIcon>{{ product.icon }}</mat-icon>-->
+    <!-- Nagłówek elementu -->
+    <div matListItemTitle>{{ product.name }}</div>
+
+    <!-- Dodatkowe linie opisu -->
+    <div matListItemLine>{{ product.code }}</div>
+    <div matListItemLine>
+      <div class="button-group">
+        <button mat-button color="primary" (click) ="openDialog()">
+          <mat-icon>edit</mat-icon>
+          <span>Edit</span>
+        </button>
+
+        <button mat-button color="accent" (click) ="openDialog()">
+          <mat-icon>redo</mat-icon>
+          <span>Redo</span>
+        </button>
+
+        <button mat-button>
+          <mat-icon>info</mat-icon>
+          <span>Details</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Przycisk akcji po prawej (opcjonalnie) -->
+    <div matListItemMeta class="price-tag">{{ product.price }} PLN</div>
+    <div matListItemMeta>
+
+
+      <button mat-flat-button color="warn">
+        <mat-icon>delete</mat-icon>
+        Delete
+      </button>
+    </div>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  }
+</mat-selection-list>
+

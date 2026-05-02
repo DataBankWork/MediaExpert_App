@@ -1,0 +1,47 @@
+<div class="page-container"  *ngIf="product; else loading">
+  <mat-card class="product-card">
+    <mat-card-header>
+      <div mat-card-avatar class="product-icon">
+        <mat-icon color="primary">inventory_2</mat-icon>
+      </div>
+      <mat-card-title>{{ product.name }}</mat-card-title>
+      <mat-card-subtitle>Product code: {{ product.code }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <div class="info-section">
+        <p class="label">System ID</p>
+        <p class="value">#{{ product.id }}</p>
+      </div>
+
+      <div class="info-section">
+        <p class="label">Unit price</p>
+        <mat-chip-listbox>
+          <mat-chip color="accent" selected>
+            {{ product.price | currency:'PLN ':'symbol':'1.2-2' }}
+          </mat-chip>
+        </mat-chip-listbox>
+      </div>
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-actions align="end">
+      <button mat-button (click)="onBack()">
+        <mat-icon>arrow_back</mat-icon> BACK
+      </button>
+      <!--<button mat-raised-button color="primary ">
+    <mat-icon>edit</mat-icon> EDIT
+  </button>-->
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #loading>
+  <mat-progress-spinner color="accent"
+                        mode="indeterminate"
+                        diameter="50">
+  </mat-progress-spinner>
+</ng-template>
