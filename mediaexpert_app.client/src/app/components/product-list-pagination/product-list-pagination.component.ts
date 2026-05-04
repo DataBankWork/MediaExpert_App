@@ -1,6 +1,6 @@
-import { Component, DestroyRef, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, DestroyRef, ViewChild} from '@angular/core';
 import { MatPaginator, MatPaginatorModule, PageEvent} from '@angular/material/paginator';
-import { MatSortModule} from '@angular/material/sort';
+import { MatSort, MatSortModule} from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule} from '@angular/material/form-field';
@@ -31,12 +31,13 @@ import { CommonModule } from '@angular/common';
   imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, MatIconModule,
     MatToolbarModule, MatCheckboxModule, MatButtonModule, MatTooltipModule, MatBadgeModule, CommonModule],
 })
-export class ProductListPaginationComponent extends BaseComponent {
+export class ProductListPaginationComponent extends BaseComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['action', 'name', 'code', 'price', 'id', 'select'];
   dataSource: MatTableDataSource<Product> = new MatTableDataSource();
   selection = new SelectionModel<Product>(true, []);
   @ViewChild(MatPaginator) paginator!: MatPaginator
+  @ViewChild(MatSort) sort!: MatSort;
   ActionType = ActionType;
   private searchSubject = new Subject<string>();
   
@@ -82,6 +83,10 @@ export class ProductListPaginationComponent extends BaseComponent {
     });
     this.loadProducts();
   }
+
+ngAfterViewInit() {
+  this.dataSource.sort = this.sort;
+}
 
   applyFilter(event: Event) {
     const newValue = (event.target as HTMLInputElement).value.trim();
