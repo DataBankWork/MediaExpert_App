@@ -9,6 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\app\enums\" />
+    <Folder Include="src\app\guards\" />
     <Folder Include="src\app\services\" />
   </ItemGroup>
   <ItemGroup>
